@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="styles.css" />
+<title>
+Library App
+</title>
+</head>
+<body class="main">
+
+
+ <div class="toptab">
+  <a href="index.html">Home</a>
+  <a class="active" href="allbooks.html">All books</a>
+  <a href="checkbookstatus.html">Book Status</a>
+  <a href="bookreserve.html">Book Reserve</a>
+ 
+  
+</div> 
+
+<u><h2>All Books </h2></u>
+
+<br/>
+<div align="center">
+<form style="width:60%">
+
+<div class="form-group">
+    <label>Filter By Category :</label>
+	
+     <select class="form-group" id="category">
+	 <option value="all">All</option>
+	 <option value="engineering">Engineering</option>
+  <option value="hubble">Management</option>
+  <option value="canyons">Medicine</option>
+  <option value="blastoff">Arts and Creative Studies</option>
+ </select> 
+    
+
+  
+
+</div>
+
+</form>
+</div>
+
+ <table id="table1" align="center" style="width:80%">
+  <tr style="background-color:  #9dd3e4 ; font-size: 25px; ">
+    <th >Category</th>
+    <th>Book Name</th>
+	<th>Author</th>
+	<th>Copies</th>
+	<th>ISBN</th>
+    <th>Location</th>
+	<th>Status</th>
+  </tr>
+  <tr>
+    <td >Engineering</td>
+    <td><a href="checkbookstatus.html">Fundamentals of Fluid Mechanics</a></td>
+	<td>Paul McWoods</td>
+	<td>3</td>
+    <td>FM5678</td>
+	<td>A5</td>
+	<td><a href="checkbookstatus.html">Available</a></td>
+  </tr>
+ <tr>
+    <td>Engineering</td>
+    <td>Advanced Computer Science Engineering</td>
+	<td>Daniel Huyoge</td>
+	<td>2</td>
+    <td>CS1638</td>
+	<td>B5</td>
+	<td>On loan</td>
+  </tr>
+   <tr>
+    <td>Engineering</td>
+    <td>Concepts of Aero-space Engineering</td>
+	<td>Shiva Koothrapali</td>
+	<td>1</td>
+    <td>AS5678</td>
+	<td>A1</td>
+	<td>Reserved</td>
+  </tr>
+  
+<tr>
+    <td>Management</td>
+    <td>Industrial Management</td>
+	<td>Zhavier Rjohjie</td>
+	<td>5</td>
+    <td>IM5678</td>
+	<td>G3</td>
+	<td>On Loan</td>
+  </tr>
+<tr>
+    <td >Management</td>
+    <td>Modern Concepts Of Marketing</td>
+	<td>Liam Henry</td>
+	<td>6</td>
+    <td >MM5678</td>
+	<td >H8</td>
+	<td >Available</td>
+  </tr>
+<tr>
+    <td >Medicine</td>
+    <td>Neuro-Surgery</td>
+	<td>Dr Azaad Malik</td>
+	<td>2</td>
+    <td>NS5678</td>
+	<td>J1</td>
+	<td>Available</td>
+  </tr>
+<tr>
+    <td >Medicine</td>
+    <td>Guide for Anatomy</td>
+	<td>Brain Fraser</td>
+	<td>1</td>
+    <td>HA5678</td>
+	<td>J5</td>
+	<td>Available</td>
+  </tr>
+<tr>
+    <td >Arts and Creative Studies</td>
+    <td>Professional Arts</td>
+	<td>Dimie Moor</td>
+	<td>7</td>
+    <td>PA5678</td>
+	<td>K2</td>
+	<td>Reserved</td>
+  </tr>
+<tr>
+    <td >Arts and Creative Studies</td>
+    <td>Music Technology</td>
+	<td>Andrew Carter</td>
+	<td>1</td>
+    <td>MT5678</td>
+	<td>T2</td>
+	<td>Available</td>
+  </tr>
+</table> 
+
+
+
+</body>
+</html>

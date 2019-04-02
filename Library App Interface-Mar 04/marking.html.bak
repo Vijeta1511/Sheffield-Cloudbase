@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<title>
+Robotic Competition
+</title>
+</head>
+<body class="main">
+
+
+ <div class="toptab">
+  <a href="index.html">Home</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="schedule.html">Schedule</a>
+  <a href="login.html">Login</a>
+  <a href="registration.html">Registration</a>
+  <a class="active" href="marking.html">Marking</a>
+  
+</div> 
+
+<u><h2>Marking </h2></u>
+<div class="form1">
+<form style="width:60%">
+<div class="form-group">
+    <label >Full Name</label>
+    <input type="text" class="form-control" id="Name" value="Kevin Roy">
+</div>
+<div class="form-group">
+    <label>Competition</label>
+	</br>
+     <select class="form-group" id="competition">
+	 <option value="linefollowing">Line Following</option>
+  <option value="oba">Obstacles Avoiding</option>
+  <option value="fas">Fastest</option>
+  
+</select> 
+
+<div class="form-group">
+    
+    <input type="checkbox" id="nolong" >
+	No Long Delay
+  </div>
+  
+  <div class="form-group">
+    
+    <input type="checkbox" id="reverse" >
+	Reverse
+  </div>
+
+<div class="form-group">
+    <label >Time</label>
+    <input type="text" class="form-control" id="time" placeholder="Enter Time in Seconds">
+  </div>
+
+  <div class="form-group">
+    <label >Marks</label>
+    <input type="text" class="form-control" id="marks" placeholder="Enter Marks">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</body>
+</html>

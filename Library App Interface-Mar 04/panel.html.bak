@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="styles2.css" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>
+Robotic Competition
+</title>
+</head>
+<body class="main">
+
+
+ <div class="toptab">
+  <a class="active" href="panel.html">Home</a>
+  <a href="registration.html">Registration</a>
+  <a href="marking.html">Marking</a>
+  
+</div> 
+
+
+
+<table id="table2" align="center">
+  
+  <tr >
+      <td > <button class="btnn" onClick="func1()"><img src="img/marking.png" width="100px" height="100px"></i>Marking</button>
+ <script type="text/javascript" language="JavaScript">
+                  function func1()
+            {
+
+                window.location = 'marking.html'
+
+            }
+             </script></td>
+    <td ><button class="btnn" onClick="func2()"><img src="img/registration.png" width="100px" height="100px">Registration</button>
+ <script type="text/javascript" language="JavaScript">
+                  function func2()
+            {
+
+                window.location = 'registration.html'
+
+            }
+             </script>
+            </td>
+			</td>
+    <td ><button class="btnn" onClick="func2()"><img src="img/schedule.png" width="100px" height="100px">My Schedule</button>
+ <script type="text/javascript" language="JavaScript">
+                  function func2()
+            {
+
+                window.location = 'registration.html'
+
+            }
+             </script>
+            </td>
+			
+			</tr>
+			<tr >
+      <td > <button class="btnn" onClick="func1()"><img src="img/leaderboard.png" width="100px" height="100px">LeaderBoard</button>
+ <script type="text/javascript" language="JavaScript">
+                  function func1()
+            {
+
+                window.location = 'marking.html'
+
+            }
+             </script></td>
+    <td ><button class="btnn" onClick="func2()"><img src="img/marking.png" width="100px" height="100px">Change Score</button>
+ <script type="text/javascript" language="JavaScript">
+                  function func2()
+            {
+
+                window.location = 'registration.html'
+
+            }
+             </script>
+            </td>
+			</td>
+    <td ><button class="btnn" onClick="func2()"><img src="img/locatejudge.jpg" width="100px" height="100px">Locate Judge</button>
+ <script type="text/javascript" language="JavaScript">
+                  function func2()
+            {
+
+                window.location = 'registration.html'
+
+            }
+             </script>
+            </td>
+			
+			</tr>
+			
+			
+</table>
+
+
+
+</body>
+</html>

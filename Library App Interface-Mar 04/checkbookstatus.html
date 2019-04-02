@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="styles.css" />
+<title>
+Library App
+</title>
+</head>
+<body class="main">
+
+
+ <div class="toptab">
+  <a href="index.html">Home</a>
+  <a href="allbooks.html">All books</a>
+  <a href="reviews.html">Book Reviews</a>
+  <a class="active" href="checkbookstatus.html">Book Status</a>
+  <a href="bookreserve.html">Book Reserve</a>
+ 
+  
+</div> 
+
+<u><h2>Book Status</h2></u>
+
+<br/>
+<div align="center">
+<div class="form2" align="center">
+<form style="width:80%">
+<div class="form-group">
+  
+<input type="text" class="form-control" id="time" placeholder="Enter the name of the book">
+<br/>
+ <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+ 
+
+</form>
+</div>
+<table id="table1" align="center" style="width:80%">
+  <tr style="background-color:  #9dd3e4 ; font-size: 25px; ">
+    <th >Category</th>
+    <th>Book Name</th>
+	<th>Author</th>
+	<th>Copies</th>
+	<th>ISBN</th>
+    <th>Location</th>
+	<th>Status</th>
+	<th>Waiting time</th>
+	<th>Requests</th>
+	<th>Request</th>
+  </tr>
+
+  <tr>
+    <td >Engineering</td>
+    <td>Quantity Suerveying</td>
+	<td>Paul McWoods</td>
+	<td>3</td>
+    <td>FM5678</td>
+	<td>A5</td>
+	<td>On Loan</td>
+	<th>23 Days</th>
+	<th>5</th>
+	<th>
+	<form action="bookreserve.html"><button type="submit" class="btn btn-primary">Request</button></form></th>
+  </tr>
+
+</table> 
+ 
+
+
+
+</body>
+</html>

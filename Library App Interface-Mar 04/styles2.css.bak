@@ -1,0 +1,15 @@
+table, th, td {
+  
+  text-align: center;
+ 
+  border-collapse: collapse;
+}
+
+.btnn{
+	
+	height: 300px;
+	width: 400px;
+}
+.btnn:hover{
+	color: #51b99a;
+}

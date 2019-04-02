@@ -1,0 +1,180 @@
+h1 {
+text-align: center;
+}
+h2 {
+text-align: center;
+}
+
+#des {
+	padding: 50px;
+text-align: center;
+}
+#blastoff{
+	margin-bottom:200px;
+}
+
+.rankdes{
+	color: red;
+	font-size: 20px
+}
+
+
+
+#table1 {
+	
+text-align: center;
+width:60%;
+}
+
+p {
+color: black;
+}
+ul {
+padding-left: 100px;
+list-style-type: circle;
+}
+li {
+color: #123456; /* hexadecimal */
+}
+
+.main {
+background-image:     url("bg-image3.jpg")   ;
+
+
+
+}
+
+.toptab {
+  background-color: #2a237d ; 
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.toptab a {
+  float: left;
+  color:  #ffffff ;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.toptab a:hover {
+  background-color:  #ddd ;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.toptab a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+table, th, td {
+  border: 2px solid black;
+  text-align: center;
+  height: 50px;
+  border-collapse: collapse;
+}
+
+#table2{
+  
+  text-align: center;
+  margin-top:100px;
+  border-collapse: collapse;
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ 
+.form1{
+	margin: auto;
+	border: 1px dotted black;
+	padding:20px;
+	margin-left: 50px;
+	margin-right: 250px;
+}
+
+.form1{
+	margin: auto;
+	
+	padding:20px;
+	margin-left: 50px;
+	margin-right: 250px;
+}
+
+.btnn{
+	height: 200px;
+	width: 300px;
+	background-color:       #d19b5f;
+font-size : 20px;
+font-weight: bold;
+
+}
+
+.btnn:hover{
+	
+	background-color:       #eb9636;
+
+
+
+}
+
+.round{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:200px;
+  list-style:none;
+  padding:0;
+}
+  .round .spacer{ flex-grow:1; }
+  .round .spacer:first-child,
+  .round .spacer:last-child{ flex-grow:.5; }
+
+  .round .game-spacer{
+    flex-grow:1;
+  }
+
+
+
+li.game{
+  padding-left:20px;
+}
+
+  li.game.winner{
+    font-weight:bold;
+	color:  #37237d;
+
+  }
+  li.game span{
+    float:right;
+    margin-right:5px;
+  }
+
+  li.game-top{ border-bottom:3px solid  #72491b; }
+
+  li.game-spacer{ 
+    border-right:3px solid #72491b;
+    min-height:40px;
+  }
+
+  li.game-bottom{ 
+    border-top:3px solid #72491b;
+  }
+  
+  main{
+	  
+  display:flex;
+  flex-direction:row;
+}
+
+#reviews{
+	border:2px solid black;
+	width:60%;
+}
+
