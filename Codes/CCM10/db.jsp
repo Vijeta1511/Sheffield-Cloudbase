@@ -1,0 +1,5 @@
+<%
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1" ,"root", "dil123");
+                    Statement s1= conn.createStatement();
+					
+					%>
