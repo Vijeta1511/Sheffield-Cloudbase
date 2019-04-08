@@ -1,13 +1,16 @@
 package com.paymentMicroservice.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
 public class TestController {
-	@RequestMapping("/test/helloWorld")
+	@RequestMapping("/test/hello")
 	public String helloWorld() {
-		return "hello"; // -> /WEB-INF/view/hello.jsp (prefix/viewName/Suffix)
+		
+		return "hello";
 	}
+	
 
 }

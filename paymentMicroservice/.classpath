@@ -16,6 +16,7 @@
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/vijetaagrawal/Spring Jar Files/spring-framework-5.1.5.RELEASE/libs/spring-aop-5.1.5.RELEASE-javadoc.jar"/>

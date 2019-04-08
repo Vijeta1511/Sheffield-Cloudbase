@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
-@ComponentScan(basePackages = {"com.capp"})
+@ComponentScan(basePackages = {"com.paymentMicroservice"})
 @EnableWebMvc
 public class SpringWebConfig implements WebMvcConfigurer {
 	
