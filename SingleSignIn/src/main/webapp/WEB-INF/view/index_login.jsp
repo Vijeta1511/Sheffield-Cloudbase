@@ -83,7 +83,7 @@ form{
 	<div class="w3-center">
   		<h2>Login Form</h2>
   		<c:if test = "${err!=null}">
-			<p class="error"> ${err}</p>
+			<p class="error" style="color:blue;"> ${err}</p>
 		</c:if>
 		<c:if test = "${param.act eq 'reg'}">
 			<p class="success">User Registered Successfully! Welcome to Sheffield Cloudbase. Please Login.</p>
