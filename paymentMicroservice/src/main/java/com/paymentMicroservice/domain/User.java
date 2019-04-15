@@ -1,12 +1,12 @@
 package com.paymentMicroservice.domain;
 
 public class User {
-	private Integer user_id;
+	private Integer userId;
 	private String name;
-	private Integer phone_number;
-	private String email_id;
+	private String phone;
+	private String email;
 	private String address;
-	private String user_name;
+	private String loginName;
 	private String password;
 	private Integer role;
 	private Integer loginStatus;
@@ -15,75 +15,75 @@ public class User {
 	public User() {
 		
 	}
-	
-	
-	public Integer getUser_id() {
-		return user_id;
+
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
-	
-	
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	public Integer getPhone_number() {
-		return phone_number;
+
+	public String getPhone() {
+		return phone;
 	}
-	public void setPhone_number(Integer phone_number) {
-		this.phone_number = phone_number;
+
+	public void setPhone(String string) {
+		this.phone = string;
 	}
-	
-	
-	public String getEmail_id() {
-		return email_id;
+
+	public String getEmail() {
+		return email;
 	}
-	public void setEmail_id(String email_id) {
-		this.email_id = email_id;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	
-	
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
-	public String getUser_name() {
-		return user_name;
+
+	public String getLoginName() {
+		return loginName;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
 	}
-	
-	
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
 	public Integer getRole() {
 		return role;
 	}
+
 	public void setRole(Integer role) {
 		this.role = role;
 	}
-	
-	
+
 	public Integer getLoginStatus() {
 		return loginStatus;
 	}
+
 	public void setLoginStatus(Integer loginStatus) {
 		this.loginStatus = loginStatus;
 	}
