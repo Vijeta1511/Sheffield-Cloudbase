@@ -1,0 +1,108 @@
+h1 {
+text-align: center;
+}
+
+h2 {
+text-align: center;
+}
+
+th, td {
+  width:200px;
+}
+
+p {
+color: black;
+}
+ul {
+padding-left: 100px;
+list-style-type: circle;
+}
+li {
+color: #123456; /* hexadecimal */
+}
+
+.toptab {
+	margin-top:0px;
+  background-color: #353535 ; 
+  overflow: hidden;
+  position: fixed;
+  top:0;
+  width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.toptab a {
+  float: left;
+  color:  #ffffff ;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.toptab a:hover {
+  background-color:  black ;
+  color: white;
+}
+
+/* Add a color to the active/current link */
+.toptab a.active {
+  background-color:   white  ;
+  color: black;
+}
+
+table, th, td {
+  border: 2px solid black;
+  text-align: center;
+  height: 50px;
+  border-collapse: collapse;
+}
+
+#table2{
+  
+  text-align: center;
+  margin-top:100px;
+  border-collapse: collapse;
+}
+
+#form1m{
+  background-color: #B9B9CD;
+  
+}
+
+#table3{
+  
+  text-align: center;
+  margin-top:10px;
+  border-collapse: collapse;
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+.btnn{
+	height: 200px;
+	width: 400px;
+	background-color:#f9f2f7   ;
+	font-size : 20px;
+	font-weight: bold;
+	color:black;
+
+}
+
+.btnn:hover{
+	
+	background-color:#f9e8f4    ;
+	color: #510d3d;
+	cursor:pointer;
+
+
+}
+
+
+
+
