@@ -61,28 +61,12 @@ public class UserController {
 			}
 			/*
 			 * On Successful login, check the role (authorization), add the user in session and redirect to appropriate dashboard.
+			 * The redirecting to the correct dashboard is handled in index.jsp
 			 */
-			else {
-				if(loggedInUser.getRole().equals("ROLE_ADMIN")){	
-					addUserInSession(loggedInUser, session); //assign session to logged in user
-					ModelAndView mav = new ModelAndView("redirect:admin/dashboard");
-					return mav;
-				}
-				else if(loggedInUser.getRole().equals("ROLE_USER")){	
-					addUserInSession(loggedInUser, session); //assign session to logged in user
-					ModelAndView mav = new ModelAndView("redirect:user/dashboard");
-					return mav;
-					}
-				else if(loggedInUser.getRole().equals("ROLE_ISV")){	
-					addUserInSession(loggedInUser, session); //assign session to logged in user
-					ModelAndView mav = new ModelAndView("redirect:isv/dashboard");
-					return mav;
-					}
-				else {	
-					m.addAttribute("err", "Invalid User ROLE");  // add error message and go back to login form and as it is added to the model, err msg is accessible in JSP as well.
-					ModelAndView mav = new ModelAndView("/index");
-					return mav ;	
-					}	
+			else {			
+				addUserInSession(loggedInUser, session);
+				ModelAndView mav = new ModelAndView("redirect:index");
+				return mav ; 
 				}
 		} catch (UserBlockedException e) {
 			m.addAttribute("err", e.getMessage()); // add error message and go back to login form
@@ -91,27 +75,10 @@ public class UserController {
 		}
 		
 	}
-	
-	@RequestMapping(value = "/admin/dashboard", method = RequestMethod.GET) 
-	public ModelAndView DashboardAdmin() {
-		 ModelAndView mav = new ModelAndView("/dashboard_admin");
-		 return mav; 
-		 }
-	
-	@RequestMapping(value = "/user/dashboard", method = RequestMethod.GET) 
-	public ModelAndView DashboardUser() {
-		 ModelAndView mav = new ModelAndView("/dashboard_user");
-		 return mav; 
-		 }
-		
-	@RequestMapping(value = "/isv/dashboard", method = RequestMethod.GET) 
-	public ModelAndView DashboardIsv() {
-		 ModelAndView mav = new ModelAndView("/dashboard_isv");
-		 return mav;
-		 }
-	
+
 	@RequestMapping(value = "/logout")
 	public ModelAndView logout(HttpSession session) {
+		session.setAttribute("role", null);
 		session.invalidate();
 		ModelAndView mav = new ModelAndView("redirect:index?act=lo");
 		return mav;
@@ -174,6 +141,4 @@ public class UserController {
 			
 	}
 	
-	
-
 }

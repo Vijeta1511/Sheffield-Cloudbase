@@ -17,11 +17,48 @@
 <body >
 
  <div class="toptab">
-  	<a class="active" href="index">DashBoard</a>
-  	<a href="reg_form">Registration</a>
-  	<a href="index_login">Login</a>
-</div>
-		
+ 	
+ 	<a class="active" href="index">DashBoard</a>
+ 	<%
+	String username=(String)session.getAttribute("loginName");
+	String role=(String)session.getAttribute("role");
+	System.out.println("role is:" +role);
+	if(role==null){
+	%>
+	<a href="reg_form">Registration</a>
+	<a href="index_login">Login</a>
+	<% 
+	}
+	else{			        
+	if(role.equals("ROLE_USER")){
+	%> 
+  	<a href="#">Peanut Account</a>
+  	<a href="logout">Logout</a>
+							 
+	<%
+	}
+	else if(role.equals("ROLE_ISV")){
+	%>
+  	<a href="#">Peanut Account</a>
+  	<input type="file" id="uploadApplication" name="uploadApplication" style="visibility: hidden; width: 1px; height: 1px" multiple />
+	<a href="" onclick="document.getElementById('uploadApplication').click(); return false">Upload Application</a>
+  	<a href="logout">Logout</a>
+							 
+	<%
+	}
+	else if(role.equals("ROLE_ADMIN")){
+	%>
+  	<a href="#">Peanut Account</a>
+  	<input type="file" id="uploadApplication" name="uploadApplication" style="visibility: hidden; width: 1px; height: 1px" multiple />
+	<a href="" onclick="document.getElementById('uploadApplication').click(); return false">Upload Application</a>
+  	<a href="viewAllTransactions">View All Transactions</a>
+  	<a href="logout">Logout</a>
+  	
+  	<%
+	}
+}
+%>	
+</div>		
 <table id="table2" align="center">
   
   <tr>
