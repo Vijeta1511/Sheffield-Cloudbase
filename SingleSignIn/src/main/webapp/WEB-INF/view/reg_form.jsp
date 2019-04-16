@@ -67,13 +67,13 @@ label{
 <s:url var="url_dashboard" value="/index"/>
 
 <ul>
-  <li><a class="active" href="${url_dashboard}">Home</a></li>
+  <li><a class="active" href="${url_dashboard}">Dashboard</a></li>
   <li><a href="${url_login_form}">Login</a></li>
   <li><a href="${url_reg_form}">Registration</a></li>
 </ul>
 
 <s:url var="url_reg" value="/register" />
-<f:form action="${url_reg}" modelAttribute="command" class="w3-container w3-card-4 w3-light-grey w3-text-pink" method="POST">
+<f:form action="${url_reg}" modelAttribute="command" class="w3-container w3-card-4 w3-light-grey w3-text-pink" method="POST" enctype="application/x-www-form-urlencoded">
 
 	<div class="w3-center">
   		<h2>Registration Form</h2>

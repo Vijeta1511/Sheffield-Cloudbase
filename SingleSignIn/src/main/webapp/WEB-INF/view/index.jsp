@@ -40,18 +40,16 @@
 	else if(role.equals("ROLE_ISV")){
 	%>
   	<a href="#">Peanut Account</a>
-  	<input type="file" id="uploadApplication" name="uploadApplication" style="visibility: hidden; width: 1px; height: 1px" multiple />
-	<a href="" onclick="document.getElementById('uploadApplication').click(); return false">Upload Application</a>
-  	<a href="logout">Logout</a>
+	<a href="upload">Upload</a>
+	<a href="logout">Logout</a>
 							 
 	<%
 	}
 	else if(role.equals("ROLE_ADMIN")){
 	%>
   	<a href="#">Peanut Account</a>
-  	<input type="file" id="uploadApplication" name="uploadApplication" style="visibility: hidden; width: 1px; height: 1px" multiple />
-	<a href="" onclick="document.getElementById('uploadApplication').click(); return false">Upload Application</a>
   	<a href="viewAllTransactions">View All Transactions</a>
+  	<a href="upload">Upload</a>
   	<a href="logout">Logout</a>
   	
   	<%
