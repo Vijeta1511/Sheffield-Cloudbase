@@ -158,47 +158,6 @@ public class UserController {
 	 * It firstly stores the file temporarily.
 	 */
 	
-//	@RequestMapping(value = "/uploadFiles", method = RequestMethod.POST)
-//	public @ResponseBody
-//	String uploadFiles(@RequestParam("file") MultipartFile[] files) {
-//
-//		String message = "";
-//		for (int i = 0; i < files.length; i++) {
-//			MultipartFile file = files[i];
-//			System.out.println(file.getOriginalFilename());
-//			System.out.println(file);
-//	
-//			try {
-//				byte[] bytes = file.getBytes();
-//
-//				// Creating the directory to store file
-//				String rootPath = System.getProperty("catalina.base");
-//				System.out.println(rootPath);
-//				File dir = new File(rootPath + File.separator + "tmpFiles");
-//				System.out.println(dir);
-//				if (!dir.exists()) { // check if directory already exist
-//					dir.mkdirs();
-//					System.out.println("Directory has been created successfully");
-//				}
-//
-//				// Create the file on server
-//				File serverFile = new File(dir.getAbsolutePath()
-//						+ File.separator + file.getOriginalFilename());
-//				BufferedOutputStream stream = new BufferedOutputStream(
-//						new FileOutputStream(serverFile));
-//				stream.write(bytes);
-//				stream.close();
-//
-//
-//				message = message + "You successfully uploaded file=" + file.getOriginalFilename()
-//						+ "<br />";
-//			} catch (Exception e) {
-//				return "You failed to upload " + file.getOriginalFilename() + " => " + e.getMessage();
-//			}
-//		}
-//		return message;
-//	}
-//	
 	@RequestMapping(value = "/uploadSuccessful", method = RequestMethod.GET)
 	public ModelAndView uploadSucess(Model m) {
 		ModelAndView mav = new ModelAndView("/uploadSuccessful");
