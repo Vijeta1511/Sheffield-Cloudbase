@@ -191,12 +191,12 @@ public class UserController {
 				}
 
 				// Create the file on server
-				File serverFile = new File(dir.getAbsolutePath()
+				File TempServerFile = new File(dir.getAbsolutePath()
 						+ File.separator + file.getOriginalFilename());
-				BufferedOutputStream stream = new BufferedOutputStream(
-						new FileOutputStream(serverFile));
-				stream.write(bytes);
-				stream.close();
+				BufferedOutputStream bos = new BufferedOutputStream(
+						new FileOutputStream(TempServerFile));
+				bos.write(bytes);
+				bos.close();
 
 				
 			} catch (Exception e) {
