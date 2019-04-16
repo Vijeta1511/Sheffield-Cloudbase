@@ -13,13 +13,8 @@ public class Peanut_accountRowMapper implements RowMapper<Peanut_account> {
 		
 		Peanut_account p = new Peanut_account();
 		p.setAcc_id(rs.getInt("accId"));
-//        u.setName(rs.getString("name"));
-//        u.setPhone(rs.getString("phone"));
-//        u.setEmail(rs.getString("email"));
-//        u.setAddress(rs.getString("address"));
-//        u.setLoginName(rs.getString("loginName"));
-//        u.setRole(rs.getInt("role"));
-//        u.setLoginStatus(rs.getInt("loginStatus"));
+		p.setAvailable_peanuts(rs.getInt("Available_peanuts"));
+		p.setUserId(rs.getInt("userId"));
         return p;
 		
 	}
