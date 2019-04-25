@@ -36,11 +36,7 @@ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
     <!-- resources exclusions from servlet mapping -->
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <mvc:resources mapping="admin/resources/**" location="/resources/"/>
-    <mvc:resources mapping="isv/resources/**" location="/resources/"/>
-    <mvc:resources mapping="user/resources/**" location="/resources/"/>
-        
+    <mvc:resources mapping="/resources/**" location="/resources/"/>   
 <ctx:annotation-config></ctx:annotation-config>
 <ctx:component-scan base-package="com.singlesignin"></ctx:component-scan>
 </beans>
