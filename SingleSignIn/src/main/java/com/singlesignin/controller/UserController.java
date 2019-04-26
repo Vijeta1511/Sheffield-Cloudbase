@@ -3,6 +3,9 @@ package com.singlesignin.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -20,6 +23,7 @@ import com.singlesignin.command.UserCommand;
 import com.singlesignin.domain.User;
 import com.singlesignin.exception.UserBlockedException;
 import com.singlesignin.service.UserService;
+import com.singlesignin.sqlscript.runSqlScript;
 
 /**
  * This class provides mapping to HTTP requests.
@@ -163,6 +167,7 @@ public class UserController {
 		ModelAndView mav = new ModelAndView("/uploadSuccessful");
 		return mav;
 	}
+	
 	@RequestMapping(value = "/uploadFailed", method = RequestMethod.GET)
 	public ModelAndView uploadFail(Model m) {
 		ModelAndView mav = new ModelAndView("/uploadFailed");
@@ -170,14 +175,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/uploadFiles", method = RequestMethod.POST)
-	public ModelAndView uploadFiles(@RequestParam("file") MultipartFile[] files)
+	public ModelAndView uploadFiles(@RequestParam("file") MultipartFile[] files) throws IOException, SQLException
 	{
+
 		for (int i = 0; i < files.length; i++) {
 			MultipartFile file = files[i];
-			System.out.println(file.getOriginalFilename());
+			System.out.println("Original file name: "+ file.getOriginalFilename());
 			System.out.println(file);
 	
 			try {
+				
 				byte[] bytes = file.getBytes();
 
 				// Creating the directory to store file
@@ -193,11 +200,20 @@ public class UserController {
 				// Create the file on server
 				File TempServerFile = new File(dir.getAbsolutePath()
 						+ File.separator + file.getOriginalFilename());
-				BufferedOutputStream bos = new BufferedOutputStream(
-						new FileOutputStream(TempServerFile));
+				System.out.println("Temp server file: "+ TempServerFile );
+				String scriptPath = TempServerFile.toString();
+				
+				BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(TempServerFile));
 				bos.write(bytes);
 				bos.close();
-
+				/*
+				 * If the file is an sql script then run and delete it from the directory to save memory.
+				 */
+				if(scriptPath.endsWith(".sql")) {
+					runSqlScript test = new runSqlScript();
+					test.run(scriptPath);
+					TempServerFile.delete();
+				}
 				
 			} catch (Exception e) {
 				ModelAndView mav = new ModelAndView("redirect:uploadFailed");

@@ -10,18 +10,6 @@
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'>
 <style>
 
-form{
-  max-width:510px;
-  margin: 0 auto;
-  margin-top: 100px;
-  height: 200px;
-}
-div{
-  max-width:500px; 
-}
-input{
-  margin-top: 10px;  
-}
 ul {
   list-style-type: none;
   margin: 0;
@@ -52,20 +40,13 @@ li a:hover {
 </style>
 <title>Uploading Files</title>
 </head>
-
 <body>
 <ul>
   <li><a class="active" href="index">Back</a></li>
 </ul>
-<form action="uploadFailed" class="w3-container w3-card-4 w3-light-grey w3-text-pink" method="POST">
-
-	<div class="w3-center">
-  		<h2>Upload Failed</h2>
-  		<h2>Kindly try again.</h2>
-  		<center><img src="resources/img/thumbs-down.png" class="w3-round"></center>
-	</div>
 	
- 
-</form>
+  		<h2> <center> Upload Failed. Kindly try again.</center></h2>
+		<center><img src="resources/img/thumbs-down.png" class="w3-round"></center>
+	
 </body>
 </html>
