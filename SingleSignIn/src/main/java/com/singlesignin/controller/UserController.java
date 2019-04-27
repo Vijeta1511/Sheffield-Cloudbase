@@ -46,7 +46,6 @@ public class UserController {
 	@RequestMapping(value = {"/get_login"}, method = RequestMethod.GET)
 	public ModelAndView index(ModelMap m) {
 		m.addAttribute("command", new LoginCommand());
-		//ModelAndView mav = new ModelAndView("/index_login");
 		return new ModelAndView("redirect:index_login",m);
 	}
 	
