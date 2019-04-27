@@ -68,7 +68,7 @@ form{
 <body>
 
 <s:url var="url_reg_form" value="/reg_form"/>
-<s:url var="url_login_form" value="/index_login"/>
+<s:url var="url_login_form" value="/get_login"/>
 <s:url var="url_dashboard" value="/index"/>
 
 <ul>

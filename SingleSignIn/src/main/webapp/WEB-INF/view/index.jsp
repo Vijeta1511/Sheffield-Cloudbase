@@ -25,7 +25,7 @@
 	if(role==null){
 	%>
 	<a href="reg_form">Registration</a>
-	<a href="index_login">Login</a>
+	<a href="get_login">Login</a>
 	<% 
 	}
 	else{			        

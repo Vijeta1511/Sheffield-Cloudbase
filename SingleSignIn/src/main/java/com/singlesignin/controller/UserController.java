@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,6 +41,13 @@ public class UserController {
 	public ModelAndView dashboard(Model m) {
 		ModelAndView mav = new ModelAndView("/index");
 		return mav;
+	}
+	
+	@RequestMapping(value = {"/get_login"}, method = RequestMethod.GET)
+	public ModelAndView index(ModelMap m) {
+		m.addAttribute("command", new LoginCommand());
+		//ModelAndView mav = new ModelAndView("/index_login");
+		return new ModelAndView("redirect:index_login",m);
 	}
 	
 	@RequestMapping(value = {"/index_login"}, method = RequestMethod.GET)
