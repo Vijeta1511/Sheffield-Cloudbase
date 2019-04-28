@@ -31,14 +31,14 @@
 	else{			        
 	if(role.equals("ROLE_USER")){
 	%> 
-  	<a href="#">Peanut Account</a>
+  	<a href="viewAccount">Peanut Account</a>
   	<a href="logout">Logout</a>
 							 
 	<%
 	}
 	else if(role.equals("ROLE_ISV")){
 	%>
-  	<a href="#">Peanut Account</a>
+  	<a href="viewAccount">Peanut Account</a>
 	<a href="upload">Upload</a>
 	<a href="logout">Logout</a>
 							 
@@ -46,8 +46,8 @@
 	}
 	else if(role.equals("ROLE_ADMIN")){
 	%>
-  	<a href="#">Peanut Account</a>
-  	<a href="viewAllTransactions">View All Transactions</a>
+  	<a href="viewAccount">Peanut Account</a>
+  	<!-- <a href="viewAllTransactions">View All Transactions</a> -->
   	<a href="upload">Upload</a>
   	<a href="logout">Logout</a>
   	
@@ -62,19 +62,38 @@
     <td> <button class="btnn" title="This app provides details about the status of the books at the library and view readers reviews" onClick="func1()"><img src="resources/img/libraryapp.png" width="100px" height="100px">Library App</button>
  	<script type="text/javascript" language="JavaScript">
                   function func1()
-            {
-
-                window.location = '#'
+            {		
+                	var app_id=document.getElementById("app_id").value;
+                	var acc_id=document.getElementById("acc_id").value;
+                	
+              		window.location.href="submit.php?user_id="+user_id;
+              		
+                	  <c:if test="${sessionScope.userId == null}"> 
+                	  <%-- User is not yet logged in --%>
+                	  window.location = 'index_login'
+                	  </c:if>
+                	  
+                	  <c:if test="${sessionScope.userId != null}"> 
+                	  window.location.href="checkout.jsp?app_id=?acc_id="+app_id+acc_id;
+                	  </c:if>
+              
 
             }
     </script></td>
     
-    <td ><button class="btnn" title="This application helps students to get their doubts solved. Its the application where you can share and learn." onClick="func2()"><img src="resources/img/studentforum.png" width="100px" height="100px">Student Forum/Ask</button>
+    <td ><button class="btnn" title="This application helps students to get their doubts solved. Its the application where you can share and learn." onClick="func2()"><img src="resources/img/studentforum.png" width="100px" height="100px">Ask</button>
  	<script type="text/javascript" language="JavaScript">
                   function func2()
             {
 
-                window.location = '#'
+                	  <c:if test="${sessionScope.userId == null}"> 
+                	  <%-- User is not yet logged in --%>
+                	  window.location = 'index_login'
+                	  </c:if>
+                	  
+                	  <c:if test="${sessionScope.userId != null}"> 
+                	  window.location = 'checkout'
+                	  </c:if>
 
             }
     </script>

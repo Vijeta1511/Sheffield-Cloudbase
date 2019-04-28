@@ -10,7 +10,7 @@ import com.paymentMicroservice.domain.Application;
 
 public interface ApplicationDAO {
 
-	public void save(Application a); // save the user object
+	public Application save(Application a, String name, Object attribute); // save the user object
 	public void update(Application a); // update the user object
 	public void delete(Application a); // delete the user object
 	public void delete(Integer ApplicationId); // delete the user by its userId

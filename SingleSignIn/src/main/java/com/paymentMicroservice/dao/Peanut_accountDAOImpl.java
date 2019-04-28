@@ -17,12 +17,13 @@ import com.paymentMicroservice.rm.Peanut_accountRowMapper;
 public class Peanut_accountDAOImpl extends BaseDAO implements Peanut_accountDAO {
 
 	@Override
-	public void save(Peanut_account p) {
+	public Peanut_account save(Peanut_account p, Object attribute) {
 		String sql = "INSERT INTO peanut_account(available_peanuts, userId)"
                 + " VALUES(:available_peanuts, :userId)";
+		Integer def = 1000;
 		Map m = new HashMap();
-		m.put("available_peanuts", p.getAvailable_peanuts());
-		m.put("userId", p.getUserId());		
+		m.put("available_peanuts", def);
+		m.put("userId", attribute);		
 		
 		
 		 KeyHolder kh = new GeneratedKeyHolder();
@@ -30,6 +31,8 @@ public class Peanut_accountDAOImpl extends BaseDAO implements Peanut_accountDAO 
 	        super.getNamedParameterJdbcTemplate().update(sql, ps, kh);
 	        Integer acc_id = kh.getKey().intValue();
 	        p.setAcc_id(acc_id);
+	        
+	        return p;
 	}		
 	
 
