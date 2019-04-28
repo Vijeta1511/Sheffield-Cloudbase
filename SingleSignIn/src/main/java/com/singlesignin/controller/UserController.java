@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,7 @@ import com.singlesignin.command.UserCommand;
 import com.singlesignin.domain.User;
 import com.singlesignin.exception.UserBlockedException;
 import com.singlesignin.service.UserService;
+import com.singlesignin.sqlscript.runSqlScript;
 
 /**
  * This class provides mapping to HTTP requests.
@@ -39,6 +41,12 @@ public class UserController {
 	
 	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
 	public ModelAndView dashboard(Model m) {
+		ModelAndView mav = new ModelAndView("/index");
+		return mav;
+	}
+	
+	@RequestMapping(value = {"/index"}, method = RequestMethod.POST)
+	public ModelAndView cancelPayment(Model m) {
 		ModelAndView mav = new ModelAndView("/index");
 		return mav;
 	}
@@ -164,28 +172,42 @@ public class UserController {
 			
 	}
 	
-	//@RequestMapping(value = "/uploadSuccessful", method = RequestMethod.GET)
-	//public ModelAndView uploadSucess(Model m) {
+//	@RequestMapping(value = "/upload", method = RequestMethod.GET)
+//	public ModelAndView upload(Model m) {
+//		ModelAndView mav = new ModelAndView("/upload");
+//		return mav;
+//	}
+//	
+//	/*
+//	 * uploadFiles() method is called when users(ISV and ADMIN) are uploading the file on server.
+//	 * It firstly stores the file temporarily.
+//	 */
+//	
+//	@RequestMapping(value = "/uploadSuccessful", method = RequestMethod.GET)
+//	public ModelAndView uploadSucess(Model m) {
 //		ModelAndView mav = new ModelAndView("/uploadSuccessful");
 //		return mav;
-	//}
-	//@RequestMapping(value = "/uploadFailed", method = RequestMethod.GET)
-	//public ModelAndView uploadFail(Model m) {
+//	}
+//	
+//	@RequestMapping(value = "/uploadFailed", method = RequestMethod.GET)
+//	public ModelAndView uploadFail(Model m) {
 //		ModelAndView mav = new ModelAndView("/uploadFailed");
 //		return mav;
-	//}
-	//
-	//@RequestMapping(value = "/uploadFiles", method = RequestMethod.POST)
-	//public ModelAndView uploadFiles(@RequestParam("file") MultipartFile[] files)
-	//{
+//	}
+//	
+//	@RequestMapping(value = "/uploadFiles", method = RequestMethod.POST)
+//	public ModelAndView uploadFiles(@RequestParam("file") MultipartFile[] files) throws IOException, SQLException
+//	{
+//
 //		for (int i = 0; i < files.length; i++) {
 //			MultipartFile file = files[i];
-//			System.out.println(file.getOriginalFilename());
+//			System.out.println("Original file name: "+ file.getOriginalFilename());
 //			System.out.println(file);
-	//
+//	
 //			try {
+//				
 //				byte[] bytes = file.getBytes();
-	//
+//
 //				// Creating the directory to store file
 //				String rootPath = System.getProperty("catalina.base");
 //				System.out.println(rootPath);
@@ -195,15 +217,24 @@ public class UserController {
 //					dir.mkdirs();
 //					System.out.println("Directory has been created successfully");
 //				}
-	//
+//
 //				// Create the file on server
 //				File TempServerFile = new File(dir.getAbsolutePath()
 //						+ File.separator + file.getOriginalFilename());
-//				BufferedOutputStream bos = new BufferedOutputStream(
-//						new FileOutputStream(TempServerFile));
+//				System.out.println("Temp server file: "+ TempServerFile );
+//				String scriptPath = TempServerFile.toString();
+//				
+//				BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(TempServerFile));
 //				bos.write(bytes);
 //				bos.close();
-	//
+//				/*
+//				 * If the file is an sql script then run and delete it from the directory to save memory.
+//				 */
+//				if(scriptPath.endsWith(".sql")) {
+//					runSqlScript test = new runSqlScript();
+//					test.run(scriptPath);
+//					TempServerFile.delete();
+//				}
 //				
 //			} catch (Exception e) {
 //				ModelAndView mav = new ModelAndView("redirect:uploadFailed");
@@ -212,8 +243,6 @@ public class UserController {
 //		}
 //		ModelAndView mav = new ModelAndView("redirect:uploadSuccessful");
 //		return mav;
-	//	
-	//}
-	
-
+//		
+//	}
 }
