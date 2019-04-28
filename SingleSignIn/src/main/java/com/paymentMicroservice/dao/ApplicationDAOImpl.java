@@ -16,12 +16,12 @@ import com.paymentMicroservice.rm.ApplicationRowMapper;
 public class ApplicationDAOImpl extends BaseDAO implements ApplicationDAO {
 
 	@Override
-	public void save(Application a) {
-		String sql = "INSERT INTO appliocation(name, userId)"
+	public Application save(Application a, String name, Object attribute) {
+		String sql = "INSERT INTO application(name, userId)"
                 + " VALUES(:name, :userId)";
 		Map m = new HashMap();
-		m.put("name", a.getName());
-		m.put("userId", a.getUserId());		
+		m.put("name", name);
+		m.put("userId", attribute);		
 		
 		
 		 KeyHolder kh = new GeneratedKeyHolder();
@@ -29,6 +29,8 @@ public class ApplicationDAOImpl extends BaseDAO implements ApplicationDAO {
 	        super.getNamedParameterJdbcTemplate().update(sql, ps, kh);
 	        Integer app_id = kh.getKey().intValue();
 	        a.setApp_id(app_id);
+	        
+	    return a;
 	}
 
 	@Override

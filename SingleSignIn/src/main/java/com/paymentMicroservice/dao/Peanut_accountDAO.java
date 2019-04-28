@@ -11,7 +11,7 @@ import com.paymentMicroservice.domain.Transaction;
 
 public interface Peanut_accountDAO {
 
-	public void save(Peanut_account p); // save the user object
+	public Peanut_account save(Peanut_account p, Object attribute); // save the user object
 	public void update(Peanut_account p); // update the user object
 	public void delete(Peanut_account p); // delete the user object
 	public void delete(Integer Peanut_accountId); // delete the user by its userId

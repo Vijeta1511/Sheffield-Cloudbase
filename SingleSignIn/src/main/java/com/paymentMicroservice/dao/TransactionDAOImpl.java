@@ -18,7 +18,7 @@ public class TransactionDAOImpl extends BaseDAO implements TransactionDAO {
 
 	@Override
 	public void save(Transaction t) {
-		String sql = "INSERT INTO peanut_account(appId, accId, userId)"
+		String sql = "INSERT INTO transaction(appId, accId, userId)"
                 + " VALUES(:appId, :accId, :userId)";
 		Map m = new HashMap();
 		m.put("appId", t.getAppId());
