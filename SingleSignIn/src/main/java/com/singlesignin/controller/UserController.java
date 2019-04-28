@@ -36,6 +36,8 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;  // userService is injected in UserController
+	@Autowired 
+	private Peanut_accountService peanut_accountService;
 	
 	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
 	public ModelAndView dashboard(Model m) {
