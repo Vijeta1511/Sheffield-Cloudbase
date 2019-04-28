@@ -1,5 +1,8 @@
 package com.singlesignin.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -8,8 +11,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.paymentMicroservice.domain.Peanut_account;
 import com.paymentMicroservice.service.Peanut_accountService;
 import com.singlesignin.command.LoginCommand;
@@ -17,7 +24,7 @@ import com.singlesignin.command.UserCommand;
 import com.singlesignin.domain.User;
 import com.singlesignin.exception.UserBlockedException;
 import com.singlesignin.service.UserService;
-
+import com.singlesignin.sqlscript.runSqlScript;
 
 /**
  * This class provides mapping to HTTP requests.
@@ -127,23 +134,16 @@ public class UserController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView registerUser(@ModelAttribute("command") User user, Model m) {
 		try {	
-			
 			/*
-			 * Check if the user has selected the role before registering. If not then throw error
+			 * Check the length of password used for registration, to have proper encryption.
+			 * After successful registration, the user is redirected to login.
 			 */
-			
 			if(user.getRole() == null) {
 				m.addAttribute("err", "Select correct role.");
 				ModelAndView mav = new ModelAndView("/reg_form");
 				return mav;
 			}
 			else {
-				
-				/*
-				 * Check the length of password used for registration, to have proper encryption.
-				 * After successful registration, the user is redirected to login.
-				 */
-				
 				if(user.getPassword().length()<8) {
 					m.addAttribute("err", "Registration Failed! Enter password with 8 characters");
 					ModelAndView mav = new ModelAndView("/reg_form");
