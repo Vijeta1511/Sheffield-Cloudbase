@@ -140,27 +140,34 @@ public class UserController {
 			 * Check the length of password used for registration, to have proper encryption.
 			 * After successful registration, the user is redirected to login.
 			 */
-			
-			if(user.getPassword().length()<8) {
-				m.addAttribute("err", "Registration Failed! Enter password with 8 characters");
+			if(user.getRole() == null) {
+				m.addAttribute("err", "Select correct role.");
 				ModelAndView mav = new ModelAndView("/reg_form");
 				return mav;
-        	}
-        	else if(user.getPassword().length()>8) {
-        		m.addAttribute("err", "Registration Failed! Enter password with 8 characters");
-        		ModelAndView mav = new ModelAndView("/reg_form");
-        		return mav;
-        	}
-        	else {	
-        		user.setLoginStatus(userService.LOGIN_STATUS_ACTIVE);
-        		//System.out.println(user.getLoginName());
-        		userService.register(user);
-        		Peanut_account p = null;
-        		try {
-					peanut_accountService.createAccount(p, user.getUserId());
-				} catch (Exception e) {
-					m.addAttribute("err", "Peanut account not created!.");
-				}}
+			}
+			else {
+				if(user.getPassword().length()<8) {
+					m.addAttribute("err", "Registration Failed! Enter password with 8 characters");
+					ModelAndView mav = new ModelAndView("/reg_form");
+					return mav;
+				}
+				else if(user.getPassword().length()>8) {
+					m.addAttribute("err", "Registration Failed! Enter password with 8 characters");
+					ModelAndView mav = new ModelAndView("/reg_form");
+					return mav;
+				}
+				else {	
+					user.setLoginStatus(userService.LOGIN_STATUS_ACTIVE);
+					//System.out.println(user.getLoginName());
+					userService.register(user);
+					Peanut_account p = null;
+					try {
+						peanut_accountService.createAccount(p, user.getUserId());
+					} catch (Exception e) {
+						m.addAttribute("err", "Peanut account not created!.");
+					}
+				}
+			}
 				ModelAndView mav = new ModelAndView("redirect:index_login?act=reg");
 				return mav;
 		}catch(DuplicateKeyException e) {
