@@ -69,10 +69,9 @@ li a:hover {
 			<p class="error" style="color:blue;"> ${err}</p>
 		</c:if>
 	</div>
-	<div class="w3-row w3-section">
- 		<div class="w3-col" style="width:60px"><i class="w3-xxlarge fas fa-user-tie"></i></div>
+	<div class="w3-row w3-section">		
        	<div class="w3-rest">
-      		<f:input path="name" class="w3-input w3-border" name="name" type="text" placeholder="Application Name" />
+      		Application Name: <f:input path="name" class="w3-input w3-border" name="name" type="text" placeholder="Enter your Application Name" />
     	</div>
 	</div>
     <div class="w3-rest" >	
