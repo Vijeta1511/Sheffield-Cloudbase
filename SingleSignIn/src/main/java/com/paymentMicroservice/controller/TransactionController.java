@@ -36,7 +36,10 @@ public class TransactionController {
 	@RequestMapping(value = "/paymentSuccessful", method = RequestMethod.POST)
 	public ModelAndView paymentSuccessful(@ModelAttribute("command") peanut_accountCommand cmd,Model m,  HttpSession session) {
 		
+		
 		Integer UserId = (Integer)session.getAttribute("UserId");
+		
+		m.addAttribute("available_balance", peanut_accountService.balance(UserId));
 		
 		try {
 			

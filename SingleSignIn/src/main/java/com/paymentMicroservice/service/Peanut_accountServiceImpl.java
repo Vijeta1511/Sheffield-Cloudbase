@@ -2,6 +2,7 @@
 package com.paymentMicroservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.paymentMicroservice.dao.BaseDAO;
@@ -54,6 +55,16 @@ public class Peanut_accountServiceImpl extends BaseDAO implements Peanut_account
 				+ "WHERE userId =?");
         getJdbcTemplate().query(sql, new Peanut_accountRowMapper(), UserId, SignIn, Payment);
 			
+	}
+
+	@Override
+	public Integer balance(Integer UserId) {
+		String sql = "SELECT acc_id, available_peanuts FROM peanut_account WHERE userId=?";
+		
+		Peanut_account p = getJdbcTemplate().queryForObject(sql, new Peanut_accountRowMapper(), UserId);
+		Integer balance = p.getAvailable_peanuts();
+		return balance;
+		
 	}
 	
 }

@@ -71,7 +71,7 @@ label{
   
   <div class="w3-col" style="width:200px"> <label><b>Available Balance</b></label></div>
     <div class="w3-rest">
-      <input class="w3-input w3-border" name="Available Balance" type="text" placeholder="Available balance" disabled>
+      <input class="w3-input w3-border" name="Available Balance" type="text" placeholder="${available_balance}" disabled>
     </div>
 </div>
 
@@ -84,7 +84,20 @@ label{
               <th>Peanut Amount</th>
             </tr>
           </thead>
-          <tr>
+         	<c:if test="${empty transactionList }">
+					<tr>
+						<td align="center" colspan="8" class="error"> No Records Present </td>
+					</tr>
+			</c:if>
+			<c:forEach var="c" items="${transactionList}" varStatus="st">
+					<tr>
+						<td> ${c.trans_id}" /></td>
+						<td> ${c.name} </td>
+						<td> 5 </td>
+
+					</tr>
+				</c:forEach>
+        <!--   <tr>
             <td>1</td>
             <td>Ask</td>
             <td>5</td>
@@ -103,7 +116,7 @@ label{
             <td>4</td>
             <td>Library</td>
             <td>5</td>
-          </tr>
+          </tr> -->
         </table>
       </div>
 

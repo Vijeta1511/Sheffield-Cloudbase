@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.paymentMicroservice.dao.BaseDAO;
+import com.paymentMicroservice.dao.Peanut_accountDAO;
 import com.paymentMicroservice.dao.TransactionDAO;
 import com.paymentMicroservice.domain.Transaction;
 import com.paymentMicroservice.rm.TransactionRowMapper;
@@ -21,6 +22,7 @@ public class TransactionServiceImpl extends BaseDAO implements TransactionServic
 	
 	@Autowired
 	private TransactionDAO transactionDAO;
+	private Peanut_accountDAO peanut_accountDAO;
 
 	@Override
 	public void newTransaction(Transaction t) {
