@@ -9,6 +9,8 @@ import com.paymentMicroservice.dao.Peanut_accountDAO;
 import com.paymentMicroservice.domain.Application;
 import com.paymentMicroservice.domain.Peanut_account;
 import com.paymentMicroservice.exception.InsufficientPeanutsException;
+import com.paymentMicroservice.rm.Peanut_accountRowMapper;
+import com.paymentMicroservice.rm.TransactionRowMapper;
 
 /**
  * @author vijetaagrawal
@@ -28,15 +30,30 @@ public class Peanut_accountServiceImpl extends BaseDAO implements Peanut_account
 	}
 
 	@Override
-	public void debit(Peanut_account p, Integer UserId) throws InsufficientPeanutsException {
-		// TODO Auto-generated method stub
+	public void debit(Integer UserId){
+		
+		String sql = ("UPDATE peanut_account"
+				+ " SET available_peanuts = available_peanuts - 5"
+				+ "WHERE userId =?");
+        getJdbcTemplate().query(sql, new Peanut_accountRowMapper(), UserId);
 		
 	}
 
 	@Override
-	public void credit(Peanut_account p, Application a, Peanut_account m1, Peanut_account m2) {
-		// TODO Auto-generated method stub
-		
+	public void credit(Integer UserId) { //requires UserID of application Owner
+		Integer SignIn = 5;
+		Integer Payment = 3;
+		String sql = ("UPDATE peanut_account"
+				+ " SET available_peanuts = available_peanuts + 3"
+				+ "WHERE userId =?"
+				+ "UNION UPDATE peanut_account"
+				+ "SET available_peanuts = available_peanuts + 1"
+				+ "WHERE userId =?"
+				+ "UNION UPDATE peanut_account"
+				+ "SET available_peanuts = available_peanuts + 1"
+				+ "WHERE userId =?");
+        getJdbcTemplate().query(sql, new Peanut_accountRowMapper(), UserId, SignIn, Payment);
+			
 	}
 	
 }
