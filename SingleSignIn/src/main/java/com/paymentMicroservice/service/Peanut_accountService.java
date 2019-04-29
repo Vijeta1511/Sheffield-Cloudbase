@@ -7,7 +7,9 @@ import com.paymentMicroservice.exception.InsufficientPeanutsException;
 public interface Peanut_accountService {
 	public Peanut_account createAccount(Peanut_account p, Object attribute);
 	
-	public void debit(Peanut_account p, Integer UserId) throws InsufficientPeanutsException;
+	public Integer balance(Integer UserId);
 	
-	public void credit(Peanut_account p, Application a, Peanut_account m1, Peanut_account m2);
+	public void debit(Integer UserId);
+	
+	public void credit(Integer UserId);
 }

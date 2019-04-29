@@ -66,7 +66,6 @@
                 	var app_id=document.getElementById("app_id").value;
                 	var acc_id=document.getElementById("acc_id").value;
                 	
-              		window.location.href="submit.php?user_id="+user_id;
               		
                 	  <c:if test="${sessionScope.userId == null}"> 
                 	  <%-- User is not yet logged in --%>

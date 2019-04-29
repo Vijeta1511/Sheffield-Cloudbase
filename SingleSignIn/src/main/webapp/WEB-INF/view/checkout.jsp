@@ -74,7 +74,7 @@ label{
   <div class="w3-col" style="width:200px"> <label><b>Available Balance</b></label></div>
     <div class="w3-rest">
     
-      <input class="w3-input w3-border" name="Available Balance" type="text" placeholder="1000" disabled>
+      <input class="w3-input w3-border" name="${available_balance}" type="text" placeholder="1000" disabled>
     </div>
 </div>
 
