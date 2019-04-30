@@ -37,14 +37,29 @@ public class Peanut_accountDAOImpl extends BaseDAO implements Peanut_accountDAO 
 	
 
 	@Override
-	public void update(Peanut_account p) {
-		String sql = "UPDATE peanut_account SET available_peanuts=:name, WHERE acc_id=:acc_id";
-        Map m = new HashMap();
-        m.put("acc_id", p.getAcc_id());
-        m.put("available_peanuts", p.getAvailable_peanuts());
-        getNamedParameterJdbcTemplate().update(sql, m);			
+	public void updateSignIn(Integer UserId) {
+		String sql = "UPDATE peanut_account SET available_peanuts=available_peanuts+1 WHERE userId=?";
+		getJdbcTemplate().update(sql, UserId);		
 	}
-
+	
+	@Override
+	public void updatePayment(Integer UserId) {
+		String sql = "UPDATE peanut_account SET available_peanuts=available_peanuts+1 WHERE userId=?";
+		getJdbcTemplate().update(sql, UserId);		
+	}
+	
+	@Override
+	public void updateAppOwner(Integer UserId) {
+		String sql = "UPDATE peanut_account SET available_peanuts=available_peanuts+3 WHERE userId=?";
+		getJdbcTemplate().update(sql, UserId);		
+	}
+	
+    @Override
+	public void debitAccount(Integer UserId) {
+    	String sql = "UPDATE peanut_account SET available_peanuts = available_peanuts-5 WHERE userId= ?";
+		getJdbcTemplate().update(sql, UserId);
+    }
+    
 	@Override
 	public void delete(Peanut_account p) {
 		this.delete(p.getAcc_id());
@@ -56,6 +71,7 @@ public class Peanut_accountDAOImpl extends BaseDAO implements Peanut_accountDAO 
 		String sql="DELETE FROM peanut_account WHERE acc_id=?";
         getJdbcTemplate().update(sql, acc_id);			
 	}
+	
 
 	@Override
 	public Peanut_account findById(Integer acc_id) {
@@ -65,9 +81,9 @@ public class Peanut_accountDAOImpl extends BaseDAO implements Peanut_accountDAO 
 	}
 
 	@Override
-	public List<Peanut_account> findByProperty(String propName, Object propValue) {
+	public Peanut_account findByProperty(String propName, Integer UserId) {
 		String sql = "SELECT acc_id, userId, available_peanuts FROM peanut_account WHERE "+propName+"=?";
-		return getJdbcTemplate().query(sql, new Peanut_accountRowMapper(), propValue);
+		return getJdbcTemplate().queryForObject(sql, new Peanut_accountRowMapper(), UserId);
 		
 	}
 

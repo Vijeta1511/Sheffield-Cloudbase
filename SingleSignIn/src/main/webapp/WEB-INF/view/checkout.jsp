@@ -67,6 +67,9 @@ label{
 <f:form action="paymentSuccessful" modelAttribute="command" class="w3-container w3-card-4 w3-light-grey w3-text-pink" enctype="multipart/form-data" method="POST">
 <div class="w3-center">
   <h2>Checkout</h2>
+  <c:if test = "${err!=null}">
+			<p class="error" style="color:blue;"> ${err}</p>
+	</c:if>
 </div>
  
 <div class="w3-row w3-section">
@@ -74,7 +77,7 @@ label{
   <div class="w3-col" style="width:200px"> <label><b>Available Balance</b></label></div>
     <div class="w3-rest">
     
-      <input class="w3-input w3-border" name="${available_balance}" type="text" placeholder="1000" disabled>
+      <input class="w3-input w3-border" name="Available Balance" type="text" placeholder="${available_balance}" disabled>
     </div>
 </div>
 

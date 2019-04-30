@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.paymentMicroservice.dao.BaseDAO;
 import com.paymentMicroservice.dao.Peanut_accountDAO;
-import com.paymentMicroservice.domain.Application;
 import com.paymentMicroservice.domain.Peanut_account;
 import com.paymentMicroservice.exception.InsufficientPeanutsException;
 import com.paymentMicroservice.rm.Peanut_accountRowMapper;
@@ -32,38 +31,25 @@ public class Peanut_accountServiceImpl extends BaseDAO implements Peanut_account
 
 	@Override
 	public void debit(Integer UserId){
-		
-		String sql = ("UPDATE peanut_account"
-				+ " SET available_peanuts = available_peanuts - 5"
-				+ "WHERE userId =?");
-        getJdbcTemplate().query(sql, new Peanut_accountRowMapper(), UserId);
+		peanut_accountDAO.debitAccount(UserId);
 		
 	}
 
 	@Override
 	public void credit(Integer UserId) { //requires UserID of application Owner
-		Integer SignIn = 5;
-		Integer Payment = 3;
-		String sql = ("UPDATE peanut_account"
-				+ " SET available_peanuts = available_peanuts + 3"
-				+ "WHERE userId =?"
-				+ "UNION UPDATE peanut_account"
-				+ "SET available_peanuts = available_peanuts + 1"
-				+ "WHERE userId =?"
-				+ "UNION UPDATE peanut_account"
-				+ "SET available_peanuts = available_peanuts + 1"
-				+ "WHERE userId =?");
-        getJdbcTemplate().query(sql, new Peanut_accountRowMapper(), UserId, SignIn, Payment);
+		Integer SignIn = 10;
+		Integer Payment = 11;
+		peanut_accountDAO.updateSignIn(SignIn);
+		peanut_accountDAO.updatePayment(Payment);
+		peanut_accountDAO.updateAppOwner(UserId);
 			
 	}
 
 	@Override
 	public Integer balance(Integer UserId) {
-		String sql = "SELECT acc_id, available_peanuts FROM peanut_account WHERE userId=?";
 		
-		Peanut_account p = getJdbcTemplate().queryForObject(sql, new Peanut_accountRowMapper(), UserId);
-		Integer balance = p.getAvailable_peanuts();
-		return balance;
+		Peanut_account p = peanut_accountDAO.findByProperty("userId", UserId);
+		return p.getAvailable_peanuts();
 		
 	}
 	

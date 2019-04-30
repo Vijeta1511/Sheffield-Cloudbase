@@ -17,13 +17,20 @@ import com.paymentMicroservice.rm.TransactionRowMapper;
 public class TransactionDAOImpl extends BaseDAO implements TransactionDAO {
 
 	@Override
-	public void save(Transaction t) {
-		String sql = "INSERT INTO transaction(appId, accId, userId)"
-                + " VALUES(:appId, :accId, :userId)";
+	public void save(Transaction t, Integer acc_id, Integer app_id, Integer UserId, String AppName) {
+//		Transaction t = new Transaction();
+		t.setAccId(acc_id);
+		t.setAppId(app_id);
+		t.setUserId(UserId);
+		t.setApp_name(AppName);
+		
+		String sql = "INSERT INTO transaction(appId, accId, userId, app_name)"
+                + " VALUES(:appId, :accId, :userId, :app_name)";
 		Map m = new HashMap();
 		m.put("appId", t.getAppId());
 		m.put("accId", t.getAccId());
-		m.put("userId", t.getUserId());		
+		m.put("userId", t.getUserId());	
+		m.put("app_name", t.getApp_name());
 		
 		
 		 KeyHolder kh = new GeneratedKeyHolder();
@@ -55,21 +62,21 @@ public class TransactionDAOImpl extends BaseDAO implements TransactionDAO {
 
 	@Override
 	public Transaction findById(Integer trans_id) {
-		String sql = "SELECT trans_id, accId, appId, userId, name FROM transaction WHERE trans_id=?";
+		String sql = "SELECT trans_id, accId, appId, userId, app_name FROM transaction WHERE trans_id=?";
 		Transaction t = getJdbcTemplate().queryForObject(sql, new TransactionRowMapper(), trans_id);
 		return t;
 	}
 
 	@Override
 	public List<Transaction> findByProperty(String propName, Object propValue) {
-		String sql = "SELECT trans_id, accId, appId, userId, name FROM transaction WHERE "+propName+"=?";
+		String sql = "SELECT trans_id, accId, appId, userId, app_name FROM transaction WHERE "+propName+"=?";
 		return getJdbcTemplate().query(sql, new TransactionRowMapper(), propValue);
 		
 	}
 
 	@Override
 	public List<Transaction> findAll() {
-		String sql = "SELECT trans_id, accId, appId, userId, name FROM transaction";
+		String sql = "SELECT trans_id, accId, appId, userId, app_name FROM transaction";
 		return getJdbcTemplate().query(sql, new TransactionRowMapper());
 	}
 

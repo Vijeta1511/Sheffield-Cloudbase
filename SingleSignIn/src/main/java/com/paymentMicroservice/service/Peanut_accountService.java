@@ -1,6 +1,5 @@
 package com.paymentMicroservice.service;
 
-import com.paymentMicroservice.domain.Application;
 import com.paymentMicroservice.domain.Peanut_account;
 import com.paymentMicroservice.exception.InsufficientPeanutsException;
 

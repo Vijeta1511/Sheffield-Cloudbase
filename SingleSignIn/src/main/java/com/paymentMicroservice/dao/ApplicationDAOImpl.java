@@ -62,9 +62,9 @@ public class ApplicationDAOImpl extends BaseDAO implements ApplicationDAO {
 	}
 
 	@Override
-	public List<Application> findByProperty(String propName, Object propValue) {
+	public Application findByProperty(String propName, String propValue) {
 		String sql = "SELECT app_id, userId, name FROM application WHERE "+propName+"=?";
-		return getJdbcTemplate().query(sql, new ApplicationRowMapper(), propValue);// TODO Auto-generated method stub
+		return getJdbcTemplate().queryForObject(sql, new ApplicationRowMapper(), propValue);// TODO Auto-generated method stub
 	}
 
 	@Override

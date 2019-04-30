@@ -62,10 +62,7 @@
     <td> <button class="btnn" title="This app provides details about the status of the books at the library and view readers reviews" onClick="func1()"><img src="resources/img/libraryapp.png" width="100px" height="100px">Library App</button>
  	<script type="text/javascript" language="JavaScript">
                   function func1()
-            {		
-                	var app_id=document.getElementById("app_id").value;
-                	var acc_id=document.getElementById("acc_id").value;
-                	
+            {	
               		
                 	  <c:if test="${sessionScope.userId == null}"> 
                 	  <%-- User is not yet logged in --%>
@@ -73,7 +70,7 @@
                 	  </c:if>
                 	  
                 	  <c:if test="${sessionScope.userId != null}"> 
-                	  window.location.href="checkout.jsp?app_id=?acc_id="+app_id+acc_id;
+                	  window.location = 'checkout'
                 	  </c:if>
               
 

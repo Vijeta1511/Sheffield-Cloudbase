@@ -16,5 +16,5 @@ public interface ApplicationDAO {
 	public void delete(Integer ApplicationId); // delete the user by its userId
 	public List<Application> findAll(); // find the user by its userId
 	public Application findById(Integer ApplicationId); // find the user by its userId
-	public List<Application> findByProperty(String propName, Object propValue); // find the user by its property name and its value
+	public Application findByProperty(String propName, String propValue); // find the user by its property name and its value
 }

@@ -91,8 +91,8 @@ label{
 			</c:if>
 			<c:forEach var="c" items="${transactionList}" varStatus="st">
 					<tr>
-						<td> ${c.trans_id}" /></td>
-						<td> ${c.name} </td>
+						<td> ${c.trans_id}" </td>
+						<td> ${c.app_name} </td>
 						<td> 5 </td>
 
 					</tr>

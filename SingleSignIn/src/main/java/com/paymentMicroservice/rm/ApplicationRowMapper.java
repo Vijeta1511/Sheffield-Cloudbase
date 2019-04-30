@@ -12,7 +12,7 @@ public class ApplicationRowMapper implements RowMapper<Application> {
 	public Application mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
 		Application a = new Application();
-		a.setApp_id(rs.getInt("appId"));
+		a.setApp_id(rs.getInt("app_id"));
         a.setName(rs.getString("name"));
 		a.setUserId(rs.getInt("userId"));
         return a;

@@ -10,7 +10,7 @@ import com.paymentMicroservice.domain.Transaction;
 
 public interface TransactionDAO {
 
-	public void save(Transaction t); // save the user object
+	public void save(Transaction t, Integer acc_id, Integer app_id, Integer UserId, String AppName); // save the user object
 	public void update(Transaction t); // update the user object
 	public void delete(Transaction t); // delete the user object
 	public void delete(Integer trans_id); // delete the user by its userId
